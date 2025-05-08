@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About PCOS Companion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="pastel-background"></div>
+
+    <div class="container">
+        <div class="navbar">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('quiz_intro') }}">Quiz</a>
+            <a href="{{ url_for('blogs') }}">Blogs</a>
+            <a href="{{ url_for('recommend') }}">Recommendations</a>
+            <a href="{{ url_for('about') }}" class="active">About</a>
+        </div>
+
+        <div class="about-content">
+            <h1 class="main-heading">About PCOS Companion</h1>
+            
+            <div class="about-card">
+                <div class="about-icon">💖</div>
+                <h2>Our Mission</h2>
+                <p>PCOS Companion was created to empower women with Polycystic Ovary Syndrome through education, self-assessment tools, and personalized recommendations to help manage symptoms effectively.</p>
+            </div>
+            
+            <div class="about-card">
+                <div class="about-icon">👩‍⚕️</div>
+                <h2>Medical Accuracy</h2>
+                <p>Our content is reviewed by healthcare professionals to ensure accurate, up-to-date information about PCOS management and treatment options.</p>
+            </div>
+            
+            <div class="about-card">
+                <div class="about-icon">🤝</div>
+                <h2>Community Driven</h2>
+                <p>We gather insights from thousands of women with PCOS to provide real-world experiences and practical advice.</p>
+            </div>
+            
+            <div class="team-section">
+                <h2>Meet The Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-avatar">👩‍💻</div>
+                        <h3>Tamanna Thanoch</h3>
+                        <p>Founder and Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

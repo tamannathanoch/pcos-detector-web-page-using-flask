@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | PCOS Companion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Animated Background */
+        .auth-background {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            z-index: -1;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Auth Container - Centered and Wider */
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        /* Enhanced Auth Card - Now Wider */
+        .auth-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 500px; /* Increased from 450px */
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 0; /* Remove extra padding around the card */
+}
+
+/* Form Styling - Adjusted for Wider Card */
+.auth-form {
+    padding: 2.5rem; /* Ensure sufficient space inside the form */
+}
+
+/* Input Group Styling */
+.input-group {
+    margin-bottom: 1.8rem;
+    position: relative;
+}
+
+/* Input Label */
+.input-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Input Fields */
+.input-group input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem; /* Adjust padding for input box */
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+    box-sizing: border-box; /* Ensure padding doesn't push the box outside */
+}
+
+/* Focus State for Inputs */
+.input-group input:focus {
+    border-color: #ba68c8;
+    box-shadow: 0 0 0 3px rgba(186, 104, 200, 0.2);
+    outline: none;
+    background-color: white;
+}
+
+/* Input Icon Styling */
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%); /* Center the icon vertically */
+    font-size: 1.2rem;
+    color: #ba68c8;
+}
+           .auth-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        }
+        
+        /* Header Styling */
+        .auth-header {
+            padding: 2.5rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f06292 0%, #ba68c8 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .auth-header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: rotate(30deg);
+        }
+        
+        .auth-header h1 {
+            margin: 0.5rem 0;
+            font-size: 2rem;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .auth-header p {
+            opacity: 0.9;
+            margin: 0;
+            font-weight: 400;
+            position: relative;
+        }
+        
+        .auth-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        /* Form Styling - Adjusted for Wider Card */
+        .auth-form {
+            padding: 2.5rem;
+        }
+        
+        .input-group {
+            margin-bottom: 1.8rem;
+            position: relative;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: #f9f9f9;
+        }
+        
+        .input-group input:focus {
+            border-color: #ba68c8;
+            box-shadow: 0 0 0 3px rgba(186, 104, 200, 0.2);
+            outline: none;
+            background-color: white;
+        }
+        
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 3.4rem;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: #ba68c8;
+        }
+        
+        /* Button Styling */
+        .auth-button {
+            width: 100%;
+            padding: 1.1rem;
+            background: linear-gradient(135deg, #f06292 0%, #ba68c8 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(240, 98, 146, 0.3);
+        }
+        
+        .auth-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(240, 98, 146, 0.4);
+        }
+        
+        .button-arrow {
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .auth-button:hover .button-arrow {
+            transform: translateX(3px);
+        }
+        
+        /* Footer Links */
+        .auth-footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #666;
+        }
+        
+        .auth-footer a {
+            color: #ba68c8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .auth-footer a:hover {
+            text-decoration: underline;
+            color: #9c27b0;
+        }
+        
+        .forgot-password {
+            display: block;
+            margin-top: 0.8rem;
+        }
+        
+        /* Error Message */
+        .auth-error {
+            background: #ffebee;
+            color: #d32f2f;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.8rem;
+            text-align: center;
+            font-weight: 500;
+            border-left: 4px solid #d32f2f;
+        }
+        
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-background"></div>
+    
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="PCOS Companion" class="auth-logo">
+                <h1>Welcome Back</h1>
+                <p>Track your PCOS journey with us</p>
+            </div>
+            
+            <form method="POST" class="auth-form">
+                {% if error %}
+                <div class="auth-error">
+                    {{ error }}
+                </div>
+                {% endif %}
+                
+                <div class="input-group">
+                    <label for="email">Email</label>
+                   <h3> <input type="email" id="email" name="email" required placeholder="you@example.com"></h3>
+                    <span class="input-icon">✉️</span>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password</label>
+                 <h3>  <input type="password" id="password" name="password" required placeholder="••••••••"></h3>
+                    <span class="input-icon">🔒</span>
+                </div>
+                
+                <button type="submit" class="auth-button">
+                    Login <span class="button-arrow">→</span>
+                </button>
+                
+                <div class="auth-footer">
+                    <p>New here? <a href="{{ url_for('signup') }}">Create account</a></p>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

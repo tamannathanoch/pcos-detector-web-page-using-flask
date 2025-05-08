@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center | PCOS Companion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="pastel-background"></div>
+    
+    <div class="container">
+        <div class="navbar">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('quiz_intro') }}">Quiz</a>
+            <a href="{{ url_for('blogs') }}">Blogs</a>
+            <a href="{{ url_for('recommend') }}">Recommendations</a>
+            <a href="{{ url_for('help') }}" class="active">Help</a>
+            {% if session.logged_in %}
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% endif %}
+        </div>
+
+        <div class="help-content">
+            <h1 class="main-heading">Help Center</h1>
+            
+            <div class="help-grid">
+                <div class="faq-section">
+                    <h2>Frequently Asked Questions</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-icon">❓</div>
+                        <div class="faq-text">
+                            <h3>How does the PCOS quiz work?</h3>
+                            <p>The quiz assesses common PCOS symptoms based on established medical criteria. Answer honestly to get your personalized risk assessment and recommendations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-icon">💾</div>
+                        <div class="faq-text">
+                            <h3>How is my data stored?</h3>
+                            <p>Your quiz answers are temporarily stored in your session and are deleted when you logout. We never share your personal information with third parties.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-icon">🔒</div>
+                        <div class="faq-text">
+                            <h3>Is my information secure?</h3>
+                            <p>Yes! We use industry-standard encryption to protect your data and maintain strict privacy policies.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-section">
+                    <div class="contact-card">
+                        <h2>Need More Help?</h2>
+                        <div class="contact-method">
+                            <div class="contact-icon">📧</div>
+                            <p>Email: <a href="mailto:help@pcoscompanion.com">help@pcoscompanion.com</a></p>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">🕒</div>
+                            <p>Response time: Within 24 hours</p>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">🌐</div>
+                            <p>For urgent medical questions, please consult your healthcare provider</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="pastel-background"></div>
+    
+    <div class="result-container">
+        <h1>Your PCOS Analysis Report</h1>
+        
+        <!-- Result Summary -->
+        <div class="result-card {{ sentiment }}">
+            <h2>{{ result_message }} Risk</h2>
+            <div class="risk-meter">
+                <div class="meter-fill" style="width: {{ risk_percentage }}%"></div>
+            </div>
+            <p>Based on your symptoms, you have {{ risk_level }} likelihood of PCOS</p>
+        </div>
+        
+        <!-- Symptom Analysis -->
+        <div class="analysis-section">
+            <h3>Your Symptom Breakdown:</h3>
+            <ul>
+                {% for question, answer in answers.items() %}
+                <li>
+                    <span class="question">{{ question }}</span>
+                    <span class="answer {{ 'yes' if answer == 'yes' else 'no' }}">{{ answer|upper }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <!-- Recommendations -->
+        <div class="recommendation-box">
+            <h3>Recommended Actions:</h3>
+            <div class="recommendations">
+                {% for rec in recommendations %}
+                <div class="recommendation-item">
+                    <span class="rec-icon">{{ rec.icon }}</span>
+                    <p>{{ rec.text }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="result-actions">
+            <a href="{{ url_for('recommend') }}" class="button">Detailed Recommendations</a>
+            <a href="{{ url_for('home') }}" class="button secondary">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

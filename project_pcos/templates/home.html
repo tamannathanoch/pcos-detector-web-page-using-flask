@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOS Awareness</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="pastel-background"></div> <!-- Animated background -->
+
+    <div class="container">
+
+<!-- Fix: Corrected route names and added active class logic -->
+<div class="navbar">
+    <a href="{{ url_for('home') }}" class="{% if page == 'home' %}active{% endif %}">Home</a>
+    <a href="{{ url_for('about') }}" class="{% if page == 'about' %}active{% endif %}">About</a>
+    <a href="{{ url_for('blogs') }}" class="{% if page == 'blogs' %}active{% endif %}">Blogs</a>
+    <a href="{{ url_for('help') }}" class="{% if page == 'help' %}active{% endif %}">Help</a>
+    {% if session.logged_in %}
+        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+    {% endif %}
+</div>        <h1 class="main-heading">Welcome to PCOS Awareness</h1>
+
+        <!-- PCOS Fact Box -->
+        <div class="fact-box">
+            <p id="fact-text">Loading PCOS Fact...</p>
+        </div>
+
+        <!-- Login/Sign Up Buttons -->
+        <div class="button-group">
+            <a href="{{ url_for('login') }}" class="button">Login</a>
+            <a href="{{ url_for('signup') }}" class="button">Sign Up</a>
+        </div>
+
+        <!-- Image Gallery -->
+        <div class="image-gallery">
+            <img src="{{ url_for('static', filename='images/pcos1.png') }}" alt="">
+            <img src="{{ url_for('static', filename='images/pcos2.png') }}" alt="">
+            <img src="{{ url_for('static', filename='images/wordcloud.png') }}" alt="wordcloud">
+        </div>
+
+        <!-- 🌸 Blog Preview Section Starts Here -->
+        <div class="blog-section">
+            <h2>🌼 Real Stories from PCOS Warriors</h2>
+
+            <div class="blog">
+                <h3>“Healing My Hormones”</h3>
+                <p>Diagnosed at 21, I started noticing changes in mood, weight, and skin... 
+                    <a href="{{ url_for('blogs') }}">Read more</a>
+                </p>
+            </div>
+
+            <div class="blog">
+                <h3>“My Sister’s Journey with PCOS”</h3>
+                <p>Her daily struggle and the power of a balanced diet and yoga... 
+                    <a href="{{ url_for('blogs') }}">Read more</a>
+                </p>
+            </div>
+
+            <a href="{{ url_for('blogs') }}" class="view-more">View More Blogs</a>
+        </div>
+        <!-- 🌸 Blog Preview Section Ends Here -->
+
+    </div>
+
+    <script>
+        const facts = [
+            "PCOS affects 1 in 10 women of reproductive age.",
+            "Common symptoms include irregular periods, weight gain, and acne.",
+            "It can lead to fertility issues if not managed properly.",
+            "Lifestyle changes and medications can help manage PCOS.",
+            "Early diagnosis and treatment can prevent long-term complications."
+        ];
+
+        let factIndex = 0;
+        function changeFact() {
+            const factText = document.getElementById("fact-text");
+            factText.classList.remove("fade-in");
+            factText.classList.add("fade-out");
+            setTimeout(() => {
+                factText.innerText = facts[factIndex];
+                factText.classList.remove("fade-out");
+                factText.classList.add("fade-in");
+                factIndex = (factIndex + 1) % facts.length;
+            }, 1000);
+        }
+
+        window.onload = () => {
+            changeFact();
+            setInterval(changeFact, 4000);
+        };
+    </script>
+</body>
+</html>

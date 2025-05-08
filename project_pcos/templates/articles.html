@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles - PCOS Awareness</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Header Styling */
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #ba68c8;
+        }
+
+        .header h3 {
+            font-size: 1.5rem;
+            color: #555;
+        }
+
+        /* Content Section */
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        /* Article Links Styling */
+        .article-link {
+            background: linear-gradient(135deg, #f06292 0%, #ba68c8 100%);
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            width: 250px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .article-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .article-link a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+            display: block;
+        }
+
+        .article-link i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-link a:hover {
+            font-size: 1.3rem;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>PCOS Articles</h1>
+        <h3>Read articles that provide insights into PCOS management and health.</h3>
+    </div>
+
+    <div class="content">
+        <div class="article-link">
+            <a href="https://example.com/article1" target="_blank">
+                <i class="fa fa-newspaper"></i> Understanding PCOS: Causes & Symptoms
+            </a>
+        </div>
+        <div class="article-link">
+            <a href="https://example.com/article2" target="_blank">
+                <i class="fa fa-newspaper"></i> The Role of Diet in Managing PCOS
+            </a>
+        </div>
+        <div class="article-link">
+            <a href="https://example.com/article3" target="_blank">
+                <i class="fa fa-newspaper"></i> How Exercise Helps in PCOS Management
+            </a>
+        </div>
+        <div class="article-link">
+            <a href="https://example.com/article4" target="_blank">
+                <i class="fa fa-newspaper"></i> PCOS and Mental Health: A Deep Dive
+            </a>
+        </div>
+        <div class="article-link">
+            <a href="https://example.com/article5" target="_blank">
+                <i class="fa fa-newspaper"></i> Natural Treatments for PCOS
+            </a>
+        </div>
+        <div class="article-link">
+            <a href="https://example.com/article6" target="_blank">
+                <i class="fa fa-newspaper"></i> Coping with PCOS: Tips and Strategies
+            </a>
+        </div>
+        <!-- Add more article links here -->
+    </div>
+
+    <!-- Include Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

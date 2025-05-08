@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcasts - PCOS Awareness</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Header Styling */
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #ba68c8;
+        }
+
+        .header h3 {
+            font-size: 1.5rem;
+            color: #555;
+        }
+
+        /* Content Section */
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        /* Podcast Links Styling */
+        .podcast-link {
+            background: linear-gradient(135deg, #f06292 0%, #ba68c8 100%);
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            width: 250px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .podcast-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .podcast-link a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+            display: block;
+        }
+
+        .podcast-link i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .podcast-link a:hover {
+            font-size: 1.3rem;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>PCOS Podcasts</h1>
+        <h3>Listen to insightful podcasts about PCOS and how to manage it.</h3>
+    </div>
+
+    <div class="content">
+        <div class="podcast-link">
+            <a href="https://example.com/podcast1" target="_blank">
+                <i class="fa fa-podcast"></i> PCOS and Fertility: Understanding the Link
+            </a>
+        </div>
+        <div class="podcast-link">
+            <a href="https://example.com/podcast2" target="_blank">
+                <i class="fa fa-podcast"></i> The Role of Diet in PCOS Management
+            </a>
+        </div>
+        <div class="podcast-link">
+            <a href="https://example.com/podcast3" target="_blank">
+                <i class="fa fa-podcast"></i> Natural Remedies for PCOS
+            </a>
+        </div>
+        <div class="podcast-link">
+            <a href="https://example.com/podcast4" target="_blank">
+                <i class="fa fa-podcast"></i> Overcoming PCOS: Stories from Women
+            </a>
+        </div>
+        <div class="podcast-link">
+            <a href="https://example.com/podcast5" target="_blank">
+                <i class="fa fa-podcast"></i> Managing PCOS and Mental Health
+            </a>
+        </div>
+        <div class="podcast-link">
+            <a href="https://example.com/podcast6" target="_blank">
+                <i class="fa fa-podcast"></i> PCOS Diet Tips from Experts
+            </a>
+        </div>
+        <!-- Add more podcast links here -->
+    </div>
+
+    <!-- Include Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
